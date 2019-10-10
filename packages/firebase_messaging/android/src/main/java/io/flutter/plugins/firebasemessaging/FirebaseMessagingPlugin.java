@@ -99,6 +99,18 @@ public class FirebaseMessagingPlugin extends BroadcastReceiver
     String body = notification != null ? notification.getBody() : null;
     notificationMap.put("body", body);
 
+    String bodyLocKey = notification != null ? notification.getBodyLocalizationKey() : null;
+    notificationMap.put("body-loc-key", bodyLocKey);
+
+    String[] bodyLocArgs = notification != null ? notification.getBodyLocalizationArgs() : null;
+    notificationMap.put("body-loc-args", bodyLocArgs);
+
+    String titleLocKey = notification != null ? notification.getTitleLocalizationKey() : null;
+    notificationMap.put("title-loc-key", titleLocKey);
+
+    String[] titleLocArgs = notification != null ? notification.getTitleLocalizationArgs() : null;
+    notificationMap.put("title-loc-args", titleLocArgs);
+
     content.put("notification", notificationMap);
     return content;
   }
