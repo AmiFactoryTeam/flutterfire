@@ -33,6 +33,7 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Arrays;
 
 /** FirebaseMessagingPlugin */
 public class FirebaseMessagingPlugin extends BroadcastReceiver
