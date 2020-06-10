@@ -33,6 +33,7 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Arrays;
 
 /** FirebaseMessagingPlugin */
 public class FirebaseMessagingPlugin extends BroadcastReceiver
@@ -141,6 +142,22 @@ public class FirebaseMessagingPlugin extends BroadcastReceiver
 
     String body = notification != null ? notification.getBody() : null;
     notificationMap.put("body", body);
+
+    String bodyLocKey = notification != null ? notification.getBodyLocalizationKey() : null;
+    notificationMap.put("body-loc-key", bodyLocKey);
+
+    String[] bodyLocArgs = notification != null ? notification.getBodyLocalizationArgs() : null;
+    if (bodyLocArgs != null) {
+      notificationMap.put("body-loc-args", Arrays.asList(bodyLocArgs));
+    }
+
+    String titleLocKey = notification != null ? notification.getTitleLocalizationKey() : null;
+    notificationMap.put("title-loc-key", titleLocKey);
+
+    String[] titleLocArgs = notification != null ? notification.getTitleLocalizationArgs() : null;
+    if (titleLocArgs != null) {
+      notificationMap.put("title-loc-args", Arrays.asList(titleLocArgs));
+    }
 
     content.put("notification", notificationMap);
     return content;
